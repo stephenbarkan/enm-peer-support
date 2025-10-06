@@ -1,0 +1,9 @@
+{
+  "siteDomain": "https://enm-peer-support.net",
+  "siteTitle": "ENM Peer Support",
+  "siteDescription": "A support network for couples opening up their relationships.",
+  "siteImage": "og-image.jpg",
+  "favicon": "favicon.png",
+  "imagesFolder": "/assets/uploads",
+  "announcementBannerContent": "Resets every time I update the content!"
+}

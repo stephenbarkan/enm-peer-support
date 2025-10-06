@@ -1,0 +1,78 @@
+{# Macro ------------------------------------------------------------------------------------------------------------------------------- #}
+
+{% macro button(props={},attrs={}) %}
+
+{# Values ------------------------------------------------------------------------------------------------------------------------------ #}
+
+{% set types = {
+    button: {
+        styles: "text-black leading-none border-2 hover:underline underline-offset-3 decoration-2 before:inset-0.5 before:absolute active:before:inset-0.75",
+        sizes: {
+            base: "text-button min-w-15 min-h-tube p-7 rounded-xl before:rounded-lg",
+            sm: "text-sm p-3 rounded-base before:rounded-sm"
+        },
+        variants: {
+            ink: "text-hue bg-hue border-black before:bg-ink",
+            hue: "text-black bg-ink border-hue before:bg-hue"
+        }
+    },
+    link: {
+        styles: "underline hover:no-underline underline-offset-3 decoration-2 active:scale-[.98]",
+        sizes: {
+            inherit: "",
+            base: "text-base",
+            sm: "text-sm"
+        }
+    }
+} %}
+
+{# ------------------------------------------------------------------------------------------------------------------------------------- #}
+
+
+<{% if attrs.href %}a{% else %}button{% endif %}
+    class="relative shrink-0 disabled:opacity-60 active:inline-block cursor-pointer {{ attrs.class }} {% if attrs.disabled %}pointer-events-none{% endif %}
+    {{ types[props.type].styles }} {{ types[props.type].sizes[props.size] }} {{ types[props.type].variants[props.variant] }}"
+    {# {{ typeClasses[props.type] }} {{ sizeClasses[props.size] }}" #}
+
+    {% include "snippets/loopAttrs.njk" %}
+>
+    {% if props.icon or props.label %}
+        <span class="flex items-center justify-center gap-2 relative">
+            {% if props.icon %}
+                <span class="text-icon">{{ props.icon }}</span>
+            {% endif %}
+            {% if props.label %}
+                <span>{{ props.label }}</span>
+            {%- endif -%}
+        </span>
+    {% endif %}
+
+    {%- if not props.label and not props.icon -%}
+        {% if caller %}
+            {{ caller() | safe }}
+        {% endif %}
+    {%- endif -%}
+
+</{% if attrs.href %}a{% else %}button{% endif %}>
+
+{# ------------------------------------------------------------------------------------------------------------------------------------- #}
+
+{% endmacro %}
+
+{# Component Documentation ------------------------------------------------------------------------------------------------------------- #}
+
+{% set buttonMeta = {
+    args: '{{ button(
+    props={
+        label: "",
+        type: "button | link",
+        size: "base | lg | sm | inherit",
+        icon: ""
+    },
+    attrs={}
+) }}',
+description: "
+- Tag defaults to `button` unless you provide a `href`, then it'll be an `a` tag.
+- Optionally you can use `{% call %}` to give custom inner HTML.
+"
+} %}

@@ -1,0 +1,37 @@
+{# ------------------------------------------------------------------------------------------------------------------------------------- #}
+
+{% set sizeClasses =
+    {
+        "sm": "var(--container-sm)",
+        "base": "var(--container-wide)",
+        "full": "100%"
+    }
+ %}
+
+{% set typeClasses =
+    {
+        "cols-1": "",
+        "cols-2": "",
+        "sidebar": "lg:grid-cols-[300px_1fr]"
+    }
+ %}
+
+{# ------------------------------------------------------------------------------------------------------------------------------------- #}
+
+{# {% macro section(props={}, attrs={})%}
+    <{% if props.tag %}{{ props.tag }}{% else %}section{% endif %}
+        {% include "snippets/loopAttrs.njk" %}
+        class="w-full {{ attrs.class }}">
+        {{ caller() | safe }}
+    </{% if props.tag %}{{ props.tag }}{% else %}section{% endif %}>
+{% endmacro %} #}
+
+ {# ------------------------------------------------------------------------------------------------------------------------------------- #}
+
+{% macro container(props={}, attrs={})%}
+    <div
+        {% include "snippets/loopAttrs.njk" %}
+        class="container mx-auto grid max-w-[{% if props.size %}{{sizeClasses[props.size]}}{% else %}{{ sizeClasses.base }}{% endif %}] {% if props.type %}{{ typeClasses[props.type] }}{% endif %} {{ attrs.class }}">
+        {{ caller() | safe }}
+    </div>
+{% endmacro %}

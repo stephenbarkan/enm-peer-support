@@ -1,0 +1,7 @@
+
+User-agent: *
+Allow: /
+
+Host: https://enm-peer-support.net
+
+Sitemap: https://enm-peer-support.net/sitemap.xml

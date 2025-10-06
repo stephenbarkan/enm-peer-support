@@ -1,0 +1,62 @@
+@import "tailwindcss";
+@import "./theme.css";
+
+[x-cloak] {
+  display: none !important;
+}
+
+@layer components {
+  :root {
+    --breakpoint-xs: 28rem; /* 448px */
+    --breakpoint-sm: 40rem; /* 640px */
+    --breakpoint-md: 44rem; /* 704px */
+    --breakpoint-lg: 60rem; /* 960px */
+    --breakpoint-xl: 75rem; /* 1200px */
+
+    --text-2xl: 44px;
+    --text-xl: 36px;
+    --text-lg: 24px;
+    --text-button: 24px;
+    --text-base: 18px;
+    --text-icon: 1.45em;
+
+    --space-site-inline: 1rem;
+    --space-section: 6rem;
+    --space-tube: 4.75rem;
+
+    /* > md */
+    @media screen and (min-width: 640px) {
+    }
+
+    /* > md */
+    @media screen and (min-width: 704px) {
+    }
+
+    /* > lg */
+    @media screen and (min-width: 960px) {
+      --space-site-inline: 3rem;
+      --space-section: 8rem;
+
+      --text-2xl: 94px;
+      --text-xl: 72px;
+      --text-lg: 32px;
+      --text-base: 24px;
+      --text-button: 28px;
+    }
+
+    /* > xl */
+    @media screen and (min-width: 1120px) {
+    }
+  }
+
+  .text-icon {
+    text-box-trim: trim-both;
+    text-box-edge: cap alphabetic;
+  }
+
+  [data-button-card]::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+  }
+}

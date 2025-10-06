@@ -1,0 +1,28 @@
+{# Values ------------------------------------------------------------------------------------------------------------------------------ #}
+
+{% set directionClasses = {
+    row: "flex flex-col @min-[400px]:flex-row gap-2 @min-[400px]:items-center",
+    column: "flex flex-col gap-3"
+} %}
+
+{% set fieldWrapperStyles = "grow flex border-2 border-hue bg-ink rounded-base min-h-tube p-0.5" %}
+{% set fieldStyles = "grow text-black bg-hue disabled:opacity-60 rounded-sm px-3 py-4" %}
+
+{# Nested Components ------------------------------------------------------------------------------------------------------------------- #}
+
+{% macro fieldLabel(props={}, attrs={}, fieldProps={}, fieldAttrs={}) %}
+    <{{ props.tag }}
+        {% if props.tag === "label" %}for="{{ fieldProps.name }}"{% endif %}
+        class="text-hue text-lg {{ attrs.class }}"
+        {% include "snippets/loopAttrs.njk" %}
+    >
+        {{ fieldProps.label }} {% if fieldAttrs.required %}<span class="">*</span>{% endif %}
+    </{{ props.tag }}>
+{% endmacro %}
+
+{% macro fieldDescription(props={}, attrs={}) %}
+    <small
+        {% include "snippets/loopAttrs.njk" %}
+        class="text-hue text-sm opacity-70 {{ attrs.class }}">{{ props.description }}
+    </small>
+{% endmacro %}
