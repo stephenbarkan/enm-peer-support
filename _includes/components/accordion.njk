@@ -13,11 +13,14 @@ args: '{{ accordion(
 ) }}'
 } %}
 
-{# Macro ------------------------------------------------------------------------------------------------------------------------------- #}
+{# Nested components ------------------------------------------------------------------------------------------------------------------- #}
 
-{% macro accordion(props={}, attrs={}) %}
+{% from "components/markdown.njk" import markdown %}
 
 {# Values ------------------------------------------------------------------------------------------------------------------------------ #}
+
+{% set detailsStyles = "py-8" %}
+{% set contentStyles = "text-base max-w-narrow pt-6" %}
 
 <style>
     summary:hover > h2 {
@@ -26,20 +29,22 @@ args: '{{ accordion(
     summary::-webkit-details-marker { display: none }
 </style>
 
-{# ------------------------------------------------------------------------------------------------------------------------------------- #}
+{# Macro ------------------------------------------------------------------------------------------------------------------------------- #}
+
+{% macro accordion(props={}, attrs={}) %}
 
 <div data-accordion {% include "snippets/loopAttrs.njk" %} class="flex flex-col {{attrs.class}}">
     {% for item in props.accordionItems %}
-        <details {% if item.isOpen %}open{% endif %} class="w-full group border-b-2 border-dark-grey">
-            <summary class="flex text-lg justify-between items-center gap-4 py-5 cursor-pointer appearance-none">
-                    <h2 class="underline-offset-3 decoration-from-font">{{ item.title }}</h2>
-                    <span class="block text-icon group-open:hidden">&plus;</span>
+        <details {% if item.isOpen %}open{% endif %} class="w-full flex flex-col group border-b-2 border-dark-grey {{ detailsStyles }}">
+            <summary class="flex text-lg justify-between  items-center cursor-pointer appearance-none">
+                    <h2 class="underline-offset-3 group-hover:underline">{{ item.title }}</h2>
+                    <span class="block text-icon group-open:hidden">+</span>
                     <span class="hidden text-icon group-open:block">–</span>
             </summary>
 
-            <section class="pb-6 text-base max-w-narrow">
-               {{ item.description | safe }}
-            </section>
+            {{ markdown({content: item.description, transform: true },{class: contentStyles }) }}
+               {# {{ item.description | safe }} #}
+
         </details>
     {% endfor %}
 </div>

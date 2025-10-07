@@ -7,6 +7,8 @@
             {% if props.primaryColor %}--md-primary-text-color: var(--{{ props.primaryColor }});{% endif %}
             {% if props.linkColor %}--md-link-color: var(--{{ props.linkColor }});{% endif %}
             {% if props.radius %}--md-radius: var(--{{ props.radius }});{% endif %}
+            {% if props.headingFont %}--md-headingFont: var(--{{ props.headingFont }});{% endif %}
+            {% if props.scale %}--md-scale: {{ props.scale }};{% endif %}
         "
         class="markdown {{ attrs.class }}">
         {% if props.content %}

@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "./theme.css";
+@import "./markdown.css";
 
 [x-cloak] {
   display: none !important;
@@ -9,7 +10,7 @@
   :root {
     --breakpoint-xs: 28rem; /* 448px */
     --breakpoint-sm: 40rem; /* 640px */
-    --breakpoint-md: 44rem; /* 704px */
+    --breakpoint-md: 48rem; /* 704px */
     --breakpoint-lg: 60rem; /* 960px */
     --breakpoint-xl: 75rem; /* 1200px */
 
@@ -18,7 +19,7 @@
     --text-lg: 24px;
     --text-button: 24px;
     --text-base: 18px;
-    --text-icon: 1.45em;
+    --text-icon: 1.3em;
 
     --space-site-inline: 1rem;
     --space-section: 6rem;
@@ -29,19 +30,19 @@
     }
 
     /* > md */
-    @media screen and (min-width: 704px) {
-    }
-
-    /* > lg */
-    @media screen and (min-width: 960px) {
+    @media screen and (min-width: 768px) {
       --space-site-inline: 3rem;
       --space-section: 8rem;
 
       --text-2xl: 94px;
-      --text-xl: 72px;
+      --text-xl: 76px;
       --text-lg: 32px;
       --text-base: 24px;
       --text-button: 28px;
+    }
+
+    /* > lg */
+    @media screen and (min-width: 960px) {
     }
 
     /* > xl */
@@ -52,6 +53,12 @@
   .text-icon {
     text-box-trim: trim-both;
     text-box-edge: cap alphabetic;
+  }
+
+  *:focus-visible {
+    outline-color: white;
+    /* outline-style: dashed; */
+    outline-width: 4px;
   }
 
   [data-button-card]::before {

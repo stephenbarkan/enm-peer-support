@@ -10,87 +10,16 @@ layout: base
 
 
 <main class="flex flex-col w-full gap-section pt-section grow">
-    {% call container({},{class:"justify-items-center text-center gap-12 lg:gap-16"}) %}
-        <div class="flex flex-col gap-12">
-            <small class="text-button">ENM Peer Support</small>
-            <h1
-                x-data="{
-                    params: new URLSearchParams(window.location.search),
-                    neighborhood () {
-                        const value = this.params.get('neighborhood')
-                        return value ? value : 'Logan Square'
-                    }
-                }"
-                class="text-2xl text-balance">Talk with another <span x-text="neighborhood"></span> bisexual who’s <span class="underline underline-offset-[.085em] decoration-[.07em]">been through it</span>!</h1>
-        </div>
-        {{ button({label: "Get in contact", type:"button", size:"base", variant:"ink"}, {href:"#contact", class:"max-w-fit"}) }}
+    {% call container({},{id:"hero-section", class:"justify-items-center text-center gap-12 md:gap-16"}) %}
+        {% include "sections/hero.njk" %}
     {% endcall %}
 
-    {% call container({},{class:"justify-items-center gap-12 border-t-2"}) %}
-        {{ accordion(
-            props={
-                accordionItems: [{
-                    title: "What is this?",
-                    description: "I went through it myself and my relationship(s) have survived and been deepened! I wish I would have had peers to talk to and learn from at the time! I can share my experiences and hindsights with you! I am not a therapist, just a neighbor who has had a similar experience!",
-                    isOpen: true
-                },{
-                    title: "What is this?",
-                    description: "I went through it myself and my relationship(s) have survived and been deepened! I wish I would have had peers to talk to and learn from at the time! I can share my experiences and hindsights with you! I am not a therapist, just a neighbor who has had a similar experience!",
-                    isOpen: false
-                }]
-            },
-            attrs={class:"w-full"}
-        ) }}
+    {% call container({},{id:"faq-section", class:"justify-items-center gap-12 border-t-2"}) %}
+        {% include "sections/faq.njk" %}
     {% endcall %}
 
-    {% call container({},{id:"contact", tabindex:"0", class:"bg-ink rounded-sm px-5 py-12 gap-12 lg:px-20 lg:py-24 lg:gap-24 justify-items-center"}) %}
-        <h2 class="text-hue text-balance text-xl text-center">Let’s get coffee and go for a walk!</h2>
-
-        <form
-            name="contact"
-            action="/success"
-            method="POST"
-            data-netlify="true"
-            class="flex flex-col items-center gap-12 lg:gap-16">
-
-            {{ input(
-                props={
-                    name: "name",
-                    label: "Your name(s)"
-                },
-                attrs={class:"w-full"},
-                fieldAttrs={
-                    type: "text",
-                    required: true
-                }
-            ) }}
-
-            {{ input(
-                props={
-                    name: "number",
-                    label: "A phone number"
-                },
-                attrs={class:"w-full"},
-                fieldAttrs={
-                    type: "tel",
-                    required: true
-                }
-            ) }}
-
-            {{ textarea(
-                props={
-                    name: "summary",
-                    label: "A short summary of what your experience has been so far and what you might like to get out of a meeting"
-                },
-                attrs={},
-                fieldAttrs={
-                    rows: "5"
-                }
-            ) }}
-
-            {{ button({label: "Submit", type:"button", size:"base", variant: "hue"}, {type:"submit", class:"max-w-fit"}) }}
-        </form>
-
+    {% call container({},{id:"contact-section", class:"gap-8 justify-items-center"}) %}
+        {% include "sections/contact.njk" %}
     {% endcall %}
 </main>
 

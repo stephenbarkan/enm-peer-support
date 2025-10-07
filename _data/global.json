@@ -5,5 +5,5 @@
   "siteImage": "og-image.jpg",
   "favicon": "favicon.png",
   "imagesFolder": "/assets/uploads",
-  "announcementBannerContent": "Resets every time I update the content!"
+  "announcementBannerContent": "Resets once I update the content!"
 }
