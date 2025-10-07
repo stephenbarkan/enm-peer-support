@@ -23,12 +23,13 @@ args: '{{ accordion(
 
 {# Values ------------------------------------------------------------------------------------------------------------------------------ #}
 
-{% set detailsStyles = "py-8" %}
-{% set contentStyles = "text-base max-w-narrow pt-6" %}
+{% set accordionStyles = "py-7 md:py-8" %}
+{% set summaryStyles = "text-lg text-balance underline-offset-3" %}
+{% set contentStyles = "text-base max-w-narrow pt-6 md:pt-7" %}
 
 <style>
     summary:hover > h2 {
-        text-decoration: underline;
+        text-decoration-line: underline;
     }
     summary::-webkit-details-marker { display: none }
 </style>
@@ -37,9 +38,9 @@ args: '{{ accordion(
 
 <div data-accordion {% include "snippets/loopAttrs.njk" %} class="flex flex-col {{attrs.class}}">
     {% for item in props.accordionItems %}
-        <details {% if item.isOpen %}open{% endif %} class="w-full flex flex-col group border-b-2 border-dark-grey {{ detailsStyles }}">
-            <summary class="flex text-lg justify-between items-center cursor-pointer appearance-none">
-                    <h2 class="underline-offset-3 group-hover:underline">{{ item.title }}</h2>
+        <details {% if item.isOpen %}open{% endif %} class="w-full flex flex-col group border-b-2 border-dark-grey {{ accordionStyles }}">
+            <summary class="flex justify-between items-center cursor-pointer appearance-none">
+                    <h2 class="{{ summaryStyles }}">{{ item.title }}</h2>
                     <span class="block text-icon group-open:hidden">+</span>
                     <span class="hidden text-icon group-open:block">–</span>
             </summary>
