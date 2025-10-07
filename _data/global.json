@@ -1,7 +1,7 @@
 {
-  "siteDomain": "https://enm-peer-support.net",
+  "siteDomain": "https://enm-peer-support.netlify.app",
   "siteTitle": "ENM Peer Support",
-  "siteDescription": "A support network for couples opening up their relationships.",
+  "siteDescription": "A local support network for couples opening up their relationships.",
   "siteImage": "og-image.jpg",
   "favicon": "favicon.png",
   "imagesFolder": "/assets/uploads",
