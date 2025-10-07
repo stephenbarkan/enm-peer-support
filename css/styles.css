@@ -19,6 +19,7 @@
     --text-lg: 24px;
     --text-button: 24px;
     --text-base: 18px;
+    --text-sm: 16px;
     --text-icon: 1.3em;
 
     --space-site-inline: 1rem;
@@ -38,6 +39,7 @@
       --text-xl: 76px;
       --text-lg: 32px;
       --text-base: 24px;
+      --text-sm: 20px;
       --text-button: 28px;
     }
 

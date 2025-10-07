@@ -17,6 +17,10 @@ args: '{{ accordion(
 
 {% from "components/markdown.njk" import markdown %}
 
+{# Macro ------------------------------------------------------------------------------------------------------------------------------- #}
+
+{% macro accordion(props={}, attrs={}) %}
+
 {# Values ------------------------------------------------------------------------------------------------------------------------------ #}
 
 {% set detailsStyles = "py-8" %}
@@ -29,14 +33,12 @@ args: '{{ accordion(
     summary::-webkit-details-marker { display: none }
 </style>
 
-{# Macro ------------------------------------------------------------------------------------------------------------------------------- #}
-
-{% macro accordion(props={}, attrs={}) %}
+{# ------------------------------------------------------------------------------------------------------------------------------------- #}
 
 <div data-accordion {% include "snippets/loopAttrs.njk" %} class="flex flex-col {{attrs.class}}">
     {% for item in props.accordionItems %}
         <details {% if item.isOpen %}open{% endif %} class="w-full flex flex-col group border-b-2 border-dark-grey {{ detailsStyles }}">
-            <summary class="flex text-lg justify-between  items-center cursor-pointer appearance-none">
+            <summary class="flex text-lg justify-between items-center cursor-pointer appearance-none">
                     <h2 class="underline-offset-3 group-hover:underline">{{ item.title }}</h2>
                     <span class="block text-icon group-open:hidden">+</span>
                     <span class="hidden text-icon group-open:block">–</span>
