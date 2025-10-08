@@ -30,9 +30,9 @@ content:
   - name: faqs
     label: FAQs
     type: file
-    path: _data/faqs.json
+    path: _data/faq.json
     fields:
-      - name: faqs
+      - name: faq
         label: FAQ
         type: object
         list:
