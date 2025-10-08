@@ -1,4 +1,4 @@
-media: images/uploads
+media: assets/uploads
 content:
   - name: global
     label: Site data
@@ -30,7 +30,7 @@ content:
   - name: faqs
     label: FAQs
     type: file
-    path: _data/faq.json
+    path: _data/frequentlyAskedQuestions.json
     fields:
       - name: faq
         label: FAQ
