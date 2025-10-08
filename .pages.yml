@@ -28,11 +28,11 @@ content:
         type: rich-text
         description: Content to be displayed in a banner on top of webpages. Leave blank to hide the banner.
   - name: faqs
-    label: Frequently asked questions
+    label: FAQs
     type: file
-    path: _data/faq.json
+    path: _data/faqs.json
     fields:
-      - name: faq
+      - name: faqs
         label: FAQ
         type: object
         list:
