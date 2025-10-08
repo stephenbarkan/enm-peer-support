@@ -37,7 +37,7 @@ content:
         type: object
         list:
           collapsible:
-            summary: "{question}"
+            summary: "{fields.title}"
         fields:
           - name: title
             label: Question
