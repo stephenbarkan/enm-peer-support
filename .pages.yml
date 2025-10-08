@@ -35,6 +35,7 @@ content:
       - name: faq
         label: FAQ
         type: object
+        list: true
         fields:
           - name: title
             label: Question
