@@ -35,7 +35,10 @@ content:
       - name: faq
         label: FAQ
         type: object
-        list: true
+        list:
+          collapsible:
+            collapsed: false
+            summary: "{title}"
         fields:
           - name: title
             label: Question
