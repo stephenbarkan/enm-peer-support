@@ -6,7 +6,7 @@
 
 {% set types = {
     button: {
-        styles: "text-black leading-none border-2 hover:underline underline-offset-3 before:inset-0.5 before:absolute active:before:inset-0.75",
+        styles: "text-black leading-none border-2 hover:underline underline-offset-3 decoration-2 before:inset-0.5 before:absolute active:before:inset-0.75",
         sizes: {
             base: "text-button min-w-15 min-h-tube p-7 rounded-xl before:rounded-lg",
             sm: "text-sm p-3 rounded-base before:rounded-sm"
@@ -17,7 +17,7 @@
         }
     },
     link: {
-        styles: "underline hover:no-underline underline-offset-3 decoration-2 active:scale-[.98]",
+        styles: "underline hover:no-underline underline-offset-3 decoration-from-font active:scale-[.98]",
         sizes: {
             inherit: "",
             base: "text-base",

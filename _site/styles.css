@@ -277,9 +277,6 @@
       max-width: 96rem;
     }
   }
-  .-mx-2 {
-    margin-inline: calc(var(--spacing) * -2);
-  }
   .mx-auto {
     margin-inline: auto;
   }
@@ -348,9 +345,6 @@
   }
   .w-full {
     width: 100%;
-  }
-  .max-w-\[100\%\] {
-    max-width: 100%;
   }
   .max-w-\[var\(--container-wide\)\] {
     max-width: var(--container-wide);
@@ -621,9 +615,6 @@
   .py-7 {
     padding-block: calc(var(--spacing) * 7);
   }
-  .py-8 {
-    padding-block: calc(var(--spacing) * 8);
-  }
   .py-12 {
     padding-block: calc(var(--spacing) * 12);
   }
@@ -725,23 +716,14 @@
   .underline {
     text-decoration-line: underline;
   }
-  .decoration-inherit {
-    text-decoration-color: inherit;
-  }
   .decoration-2 {
     text-decoration-thickness: 2px;
   }
-  .decoration-\[\.07em\] {
-    text-decoration-thickness: .07em;
-  }
-  .decoration-auto {
-    text-decoration-thickness: auto;
+  .decoration-from-font {
+    text-decoration-thickness: from-font;
   }
   .underline-offset-3 {
     text-underline-offset: 3px;
-  }
-  .underline-offset-4 {
-    text-underline-offset: 4px;
   }
   .underline-offset-\[\.085em\] {
     text-underline-offset: .085em;
@@ -815,13 +797,6 @@
   .group-open\:hidden {
     &:is(:where(.group):is([open], :popover-open, :open) *) {
       display: none;
-    }
-  }
-  .group-hover\:underline {
-    &:is(:where(.group):hover *) {
-      @media (hover: hover) {
-        text-decoration-line: underline;
-      }
     }
   }
   .backdrop\:bg-black\/35 {
@@ -942,11 +917,6 @@
       margin-inline: calc(var(--spacing) * -2);
     }
   }
-  .max-xs\:-mx-2 {
-    @media (width < 28rem) {
-      margin-inline: calc(var(--spacing) * -2);
-    }
-  }
   .xs\:hidden {
     @media (width >= 28rem) {
       display: none;
@@ -996,11 +966,6 @@
       padding-inline: calc(var(--spacing) * 20);
     }
   }
-  .md\:py-7 {
-    @media (width >= 48rem) {
-      padding-block: calc(var(--spacing) * 7);
-    }
-  }
   .md\:py-8 {
     @media (width >= 48rem) {
       padding-block: calc(var(--spacing) * 8);
@@ -1026,11 +991,6 @@
   .lg\:grid-cols-\[300px_1fr\] {
     @media (width >= 56rem) {
       grid-template-columns: 300px 1fr;
-    }
-  }
-  .lg\:py-8 {
-    @media (width >= 56rem) {
-      padding-block: calc(var(--spacing) * 8);
     }
   }
   .lg\:max-xl\:block {
@@ -1293,10 +1253,6 @@
   .text-icon {
     text-box-trim: trim-both;
     text-box-edge: cap alphabetic;
-  }
-  *:focus-visible {
-    outline-color: white;
-    outline-width: 4px;
   }
   [data-button-card]::before {
     content: "";

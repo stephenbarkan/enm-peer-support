@@ -1,5 +1,5 @@
 <div class="flex flex-col gap-12">
-    <small class="text-button">ENM Peer Support</small>
+    <small class="text-button">{{ global.siteTitle }}</small>
     <h1
         x-data="{
             params: new URLSearchParams(window.location.search),
@@ -9,7 +9,7 @@
             }
         }"
         class="text-2xl text-balance">
-            Talk with another <span x-text="neighborhood"></span> bisexual who’s <span class="underline underline-offset-[.085em] decoration-[.07em]">been through it</span>!
+           Talk with another <span x-text="neighborhood"></span> bisexual who’s <span class="underline underline-offset-[.085em] decoration-from-font">been through it</span>!
         </h1>
 </div>
 {{ button({label: "Get in contact", type:"button", size:"base", variant:"ink"}, {href:"#contact-section", class:"max-w-fit"}) }}
