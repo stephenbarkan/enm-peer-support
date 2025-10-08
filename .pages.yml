@@ -34,7 +34,7 @@ content:
     fields:
       - name: faq
         label: FAQ
-        # component: accordion
+        component: accordion
 
 components:
   accordion:
