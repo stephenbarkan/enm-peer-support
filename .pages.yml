@@ -37,7 +37,7 @@ content:
         type: object
         list:
           collapsible:
-            summary: "{fields.title}"
+            summary: "{index}: {fields.title}"
         fields:
           - name: title
             label: Question
@@ -45,6 +45,10 @@ content:
           - name: description
             label: Answer
             type: rich-text
+          - name: isOpen
+            label: Expanded
+            type: boolean
+            default: false
 
 components:
   metadata:
