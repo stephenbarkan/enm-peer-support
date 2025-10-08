@@ -1,10 +1,6 @@
-{% for faq in faq.faq %}
-
-{% endfor %}
 {{ accordion(
     props={
-        accordionItems: [
-        ]
+        accordionItems: frequentlyAskedQuestions.faq
     },
     attrs={class:"w-full"}
 ) }}
