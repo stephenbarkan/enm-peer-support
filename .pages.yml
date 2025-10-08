@@ -37,7 +37,6 @@ content:
         type: object
         list:
           collapsible:
-            collapsed: false
             summary: "{title}"
         fields:
           - name: title
