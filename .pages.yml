@@ -34,24 +34,27 @@ content:
     fields:
       - name: faq
         label: FAQ
-        type: object
-        list:
-          collapsible:
-            collapsed: true
-            summary: "{index}: {fields.title}"
-        fields:
-          - name: title
-            label: Question
-            type: string
-          - name: description
-            label: Answer
-            type: rich-text
-          - name: isOpen
-            label: Expanded
-            type: boolean
-            default: false
+        component: accordion
 
 components:
+  accordion:
+    label: Accordion
+    type: object
+    list:
+      collapsible:
+        collapsed: true
+        summary: "{index}: {fields.title}"
+    fields:
+      - name: title
+        label: Question
+        type: string
+      - name: description
+        label: Answer
+        type: rich-text
+      - name: isOpen
+        label: Expanded
+        type: boolean
+        default: false
   metadata:
     label: SEO metadata
     type: object
