@@ -10,8 +10,8 @@ headline: talk
 
 
 
-<main class="flex flex-col w-full gap-section pt-section grow">
-    {% call container({},{id:"hero-section", class:"justify-items-center text-center gap-12 md:gap-16"}) %}
+<main class="flex flex-col w-full grow">
+    {% call container({},{id:"hero-section", class:"justify-items-center text-center gap-12 md:gap-16 py-12 xs:py-section max-h-[90dvh] place-content-center"}) %}
         {% include "sections/hero.njk" %}
     {% endcall %}
 
@@ -19,7 +19,7 @@ headline: talk
         {% include "sections/faq.njk" %}
     {% endcall %}
 
-    {% call container({},{id:"contact-section", class:"gap-8 justify-items-center"}) %}
+    {% call container({},{id:"contact-section", class:"mt-section gap-8 justify-items-center"}) %}
         {% include "sections/contact.njk" %}
     {% endcall %}
 </main>

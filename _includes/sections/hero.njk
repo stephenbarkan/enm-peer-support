@@ -1,15 +1,24 @@
-<div class="flex flex-col gap-12">
-    <small class="text-button">{{ global.siteTitle }}</small>
-    <h1
-        x-data="{
-            params: new URLSearchParams(window.location.search),
-            neighborhood () {
-                const value = this.params.get('neighborhood')
-                return value ? value : 'Logan Square'
-            }
-        }"
-        class="text-2xl text-balance">
-           Talk with another <span x-text="neighborhood"></span> bisexual who’s <span class="underline underline-offset-[.085em] decoration-from-font">been through it</span>!
-        </h1>
+<div
+    x-data="{
+        neighborhood: null,
+        params: new URLSearchParams(window.location.search),
+        setNeighborhood () {
+            const value = this.params.get('neighborhood')
+            this.neighborhood = value ? value : null
+        }
+    }"
+    x-init="setNeighborhood"
+    class="flex flex-col gap-12 grow">
+    <h1 class="text-button">{{ global.siteTitle }}</h1>
+    <template x-if="neighborhood">
+        <p class="text-2xl text-balance">
+            Talk with another <span x-text="neighborhood"></span> bisexual who’s <span class="underline underline-offset-[.085em] decoration-from-font">been through it</span>!
+        </p>
+    </template>
+    <template x-if="neighborhood == null">
+        <p class="text-2xl text-balance">
+            Opening your relationship? We’ll help you get through it, <span class="underline underline-offset-[.085em] decoration-from-font">without breaking up</span>!
+        </p>
+    </template>
 </div>
 {{ button({label: "Get in contact", type:"button", size:"base", variant:"ink"}, {href:"#contact-section", class:"max-w-fit"}) }}

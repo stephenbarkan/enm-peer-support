@@ -283,6 +283,9 @@
   .mt-2 {
     margin-top: calc(var(--spacing) * 2);
   }
+  .mt-section {
+    margin-top: var(--space-section);
+  }
   .mr-1 {
     margin-right: calc(var(--spacing) * 1);
   }
@@ -322,8 +325,26 @@
   .h-\[1\.1em\] {
     height: 1.1em;
   }
+  .h-\[95dvh\] {
+    height: 95dvh;
+  }
+  .max-h-\[85dvh\] {
+    max-height: 85dvh;
+  }
+  .max-h-\[90dvh\] {
+    max-height: 90dvh;
+  }
+  .max-h-\[95dvh\] {
+    max-height: 95dvh;
+  }
   .min-h-\[50dvh\] {
     min-height: 50dvh;
+  }
+  .min-h-\[90dvh\] {
+    min-height: 90dvh;
+  }
+  .min-h-\[95dvh\] {
+    min-height: 95dvh;
   }
   .min-h-dvh {
     min-height: 100dvh;
@@ -345,6 +366,9 @@
   }
   .w-full {
     width: 100%;
+  }
+  .max-w-\[100\%\] {
+    max-width: 100%;
   }
   .max-w-\[var\(--container-wide\)\] {
     max-width: var(--container-wide);
@@ -614,6 +638,9 @@
   }
   .py-7 {
     padding-block: calc(var(--spacing) * 7);
+  }
+  .py-8 {
+    padding-block: calc(var(--spacing) * 8);
   }
   .py-12 {
     padding-block: calc(var(--spacing) * 12);
@@ -920,9 +947,29 @@
       margin-inline: calc(var(--spacing) * -2);
     }
   }
+  .max-xs\:min-h-\[85dvh\] {
+    @media (width < 28rem) {
+      min-height: 85dvh;
+    }
+  }
+  .max-xs\:min-h-\[90dvh\] {
+    @media (width < 28rem) {
+      min-height: 90dvh;
+    }
+  }
   .xs\:hidden {
     @media (width >= 28rem) {
       display: none;
+    }
+  }
+  .xs\:min-h-\[90dvh\] {
+    @media (width >= 28rem) {
+      min-height: 90dvh;
+    }
+  }
+  .xs\:py-section {
+    @media (width >= 28rem) {
+      padding-block: var(--space-section);
     }
   }
   .xs\:max-sm\:block {
