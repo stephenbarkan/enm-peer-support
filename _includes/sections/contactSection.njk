@@ -1,0 +1,80 @@
+{# Values ------------------------------------------------------------------------------------------------------------------------------ #}
+
+{% set nameLabel = "Your name(s)" %}
+{% set numberLabel = "A phone number" %}
+{% set textAreaLabel = "Optional: a little on what your experience has been so far and what you might like to get out of a meeting" %}
+
+{# ------------------------------------------------------------------------------------------------------------------------------------- #}
+
+{% call container({},{class:"gap-8 justify-items-center"}) %}
+
+    <h2 class="text-xl text-center text-black text-balance">Let’s get coffee and go for a walk?</h2>
+
+    <form
+        x-data="{
+            isSubmitted: false,
+            handleSubmit(event) {
+                event.preventDefault();
+
+                const myForm = event.target;
+                const formData = new FormData(myForm);
+
+                fetch('/', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                    body: new URLSearchParams(formData).toString()
+                })
+                    .then(this.isSubmitted = true)
+                    .catch(error => alert(error));
+            }
+        }"
+        name="contact"
+        method="POST"
+        @submit="handleSubmit"
+        netlify
+        tabindex="0"
+        class="bg-ink max-sm:-mx-2 rounded-sm min-w-full px-5 py-12 md:px-20 md:py-24 md:gap-24 grid min-h-[50dvh] place-content-center">
+
+        <div
+            x-show="!isSubmitted"
+            class="flex flex-col items-center gap-12">
+            {{ input(
+                props={
+                    name: "name",
+                    label: nameLabel
+                },
+                attrs={class:"w-full"},
+                fieldAttrs={
+                    type: "text",
+                    required: true
+                }
+            ) }}
+            {{ input(
+                props={
+                    name: "number",
+                    label: numberLabel
+                },
+                attrs={class:"w-full"},
+                fieldAttrs={
+                    type: "tel",
+                    required: true
+                }
+            ) }}
+            {{ textarea(
+                props={
+                    name: "summary",
+                    label: textAreaLabel
+                },
+                attrs={},
+                fieldAttrs={
+                    rows: "5"
+                }
+            ) }}
+            {{ button({label: "Submit", type:"button", size:"base", variant: "hue"}, {type:"submit", class:"max-w-fit"}) }}
+        </div>
+
+        <p x-show="isSubmitted" class="text-xl text-center text-balance text-hue">
+            Thanks! We'll text you soon to set up a time to get together.
+        </p>
+    </form>
+{% endcall %}

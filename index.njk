@@ -10,21 +10,21 @@ headline: talk
 
 
 
-<main class="flex flex-col w-full grow">
-    {% call container({},{id:"hero-section", class:"justify-items-center text-center gap-12 md:gap-16 py-12 xs:py-section max-h-[90dvh] place-content-center"}) %}
-        {% include "sections/hero.njk" %}
-    {% endcall %}
+<main class="w-full grow">
+    <section class="my-12 sm:my-section" id="hero-section">
+        {% include "sections/heroSection.njk" %}
+    </section>
 
-    {% call container({},{id:"faq-section", class:"justify-items-center gap-12 border-t-2"}) %}
-        {% include "sections/faq.njk" %}
-    {% endcall %}
+    <section class="my-12 sm:my-section" id="faq-section">
+        {% include "sections/faqSection.njk" %}
+    </section>
 
-    {% call container({},{id:"contact-section", class:"mt-section gap-8 justify-items-center"}) %}
-        {% include "sections/contact.njk" %}
-    {% endcall %}
+    <section class="my-section" id="contact-section">
+        {% include "sections/contactSection.njk" %}
+    </section>
 </main>
 
-<footer class="py-6 w-full text-center text-sm">
+<footer class="w-full py-6 text-sm text-center">
     {# <p>Web design and development by {{ button({label:"Chicago Design Cooperative", type:"link", size:"inherit"},{href:"/", target:"_blank", class:"inline-block"}) }}</p> #}
     <p>Web design and development by Chicago Design Cooperative</p>
 </footer>
