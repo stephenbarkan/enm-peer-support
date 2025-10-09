@@ -11,7 +11,7 @@
     <h2 class="text-xl text-center text-black text-balance">Let’s get coffee and go for a walk?</h2>
 
     <form
-        x-data="{
+        {# x-data="{
             isSubmitted: false,
             handleSubmit(event) {
                 event.preventDefault();
@@ -27,7 +27,7 @@
                     .then(this.isSubmitted = true)
                     .catch(error => alert(error));
             }
-        }"
+        }" #}
         name="contact"
         method="POST"
         {# @submit="handleSubmit" #}
