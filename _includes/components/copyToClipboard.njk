@@ -40,7 +40,7 @@ description: "
             $dispatch('notify', { content:'{{props.toastMessage}}', toasterId:'{% if props.toasterId %}{{ props.toasterId }}{% else %}toaster{% endif %}' })
         }
     }"
-    {{ loopAttrs() }}
+    {{ loopAttrs(attrs) }}
     class="inline-block {{ attrs.class }}">
     {{ caller() | safe }}
 </span>

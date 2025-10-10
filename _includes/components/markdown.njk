@@ -56,7 +56,7 @@ description: "
     {% set mdScale %}--md-scale: {% if props.overrides.scale %}{{ props.overrides.scale }}{% else %}{{ themeDefaults.scale }}{% endif %};{% endset %}
 
     <div
-        {{ loopAttrs() }}
+        {{ loopAttrs(attrs) }}
         style="
             {{ mdFontSize }}
             {{ mdTextColor }}

@@ -69,7 +69,7 @@ description: "
     x-id="['dropdown']"
     x-on:keydown.escape.prevent.stop="close($refs.button)"
     x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
-    {{ loopAttrs() }}
+    {{ loopAttrs(attrs) }}
     class="relative max-w-fit {{ props.class }}"
 >
     {{ button(

@@ -24,7 +24,7 @@
 
 {# {% macro section(props={}, attrs={})%}
     <{% if props.tag %}{{ props.tag }}{% else %}section{% endif %}
-        {{ loopAttrs() }}
+        {{ loopAttrs(attrs) }}
         class="w-full {{ attrs.class }}">
         {{ caller() | safe }}
     </{% if props.tag %}{{ props.tag }}{% else %}section{% endif %}>
@@ -34,7 +34,7 @@
 
 {% macro container(props={}, attrs={})%}
     <div
-        {{ loopAttrs() }}
+        {{ loopAttrs(attrs) }}
         class="container mx-auto grid max-w-[{% if props.size %}{{sizeClasses[props.size]}}{% else %}{{ sizeClasses.base }}{% endif %}] {% if props.type %}{{ typeClasses[props.type] }}{% endif %} {{ attrs.class }}">
         {{ caller() | safe }}
     </div>

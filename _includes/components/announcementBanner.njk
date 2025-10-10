@@ -54,7 +54,7 @@ description: "
     x-if="showBanner">
     <div
         data-announcement-banner
-        {{ loopAttrs() }}
+        {{ loopAttrs(attrs) }}
         class="w-full {{ position }} z-40 {{ styleClasses }} {{ attrs.class }}">
         {% call container({size:"full"}) %}
             <div class="flex items-center justify-between">

@@ -38,7 +38,7 @@ description: "
     id="{{ props.name }}"
     name="{{ props.name }}"
     class="{{ attrs.class }}"
-    {{ loopAttrs() }}>
+    {{ loopAttrs(attrs) }}>
     <div class="{{ directionClasses["column"] }} @container">
 
         {% if props.label %}{{ fieldLabel(props={tag: "legend"}, fieldProps=props, fieldAttrs=fieldAttrs) }}{% endif %}

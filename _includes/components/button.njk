@@ -37,7 +37,7 @@
     class="relative shrink-0 disabled:opacity-60 active:inline-block cursor-pointer {{ attrs.class }} {% if attrs.disabled %}pointer-events-none{% endif %}
     {{ types[props.type].styles }} {{ types[props.type].sizes[props.size] }} {{ types[props.type].variants[props.variant] }}"
     {# {{ typeClasses[props.type] }} {{ sizeClasses[props.size] }}" #}
-    {{ loopAttrs() }}
+    {{ loopAttrs(attrs) }}
 >
     {% if props.icon or props.label %}
         <span class="relative flex items-center justify-center gap-2">

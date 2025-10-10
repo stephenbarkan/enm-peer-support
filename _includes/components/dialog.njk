@@ -22,7 +22,7 @@ description: "
 
 {# ------------------------------------------------------------------------------------------------------------------------------------- #}
 
-<div x-data {{ loopAttrs() }} class="{{ attrs.class }}">
+<div x-data {{ loopAttrs(attrs) }} class="{{ attrs.class }}">
     {{ button(props=triggerProps, attrs={"@click": "$refs.dialog.showModal()"}) }}
 
     <dialog

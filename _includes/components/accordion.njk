@@ -38,7 +38,7 @@ args: '{{ accordion(
 
 {# ------------------------------------------------------------------------------------------------------------------------------------- #}
 
-<div data-accordion {{ loopAttrs() }} class="flex flex-col {{attrs.class}}">
+<div data-accordion {{ loopAttrs(attrs) }} class="flex flex-col {{attrs.class}}">
     {% for item in props.accordionItems %}
         <details
             {% if item.isOpen %}open{% endif %}
