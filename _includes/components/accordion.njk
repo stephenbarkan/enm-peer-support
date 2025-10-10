@@ -16,6 +16,8 @@ args: '{{ accordion(
 {# Nested components ------------------------------------------------------------------------------------------------------------------- #}
 
 {% from "components/markdown.njk" import markdown %}
+{% from "snippets/loopAttrsMacro.njk" import loopAttrs %}
+
 
 {# Macro ------------------------------------------------------------------------------------------------------------------------------- #}
 
@@ -38,7 +40,10 @@ args: '{{ accordion(
 
 <div data-accordion {% include "snippets/loopAttrs.njk" %} class="flex flex-col {{attrs.class}}">
     {% for item in props.accordionItems %}
-        <details {% if item.isOpen %}open{% endif %} class="w-full flex flex-col group border-b-2 border-dark-grey {{ accordionStyles }}">
+        <details
+            {% if item.isOpen %}open{% endif %}
+            {{ loopAttrs(item.attrs) }}
+            class="w-full flex flex-col group border-b-2 border-dark-grey {{ accordionStyles }} {{ item.attrs.class }}">
             <summary class="flex items-center justify-between appearance-none cursor-pointer">
                     <h2 class="{{ summaryStyles }}">{{ item.title }}</h2>
                     <span class="block text-icon group-open:hidden">+</span>

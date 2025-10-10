@@ -1,15 +1,5 @@
 {% call container({},{class:"justify-items-center text-center gap-12 md:gap-16 max-xs:min-h-[calc(100dvh-2*var(--spacing-section))] place-content-center"}) %}
-    <div
-        x-data="{
-            neighborhood: null,
-            params: new URLSearchParams(window.location.search),
-            setNeighborhood () {
-                const value = this.params.get('neighborhood')
-                this.neighborhood = value ? value : null
-            }
-        }"
-        x-init="setNeighborhood"
-        class="flex flex-col gap-12 grow">
+    <div class="flex flex-col gap-12 grow">
         <h1 class="text-button">{{ global.siteTitle }}</h1>
         <template x-if="neighborhood">
             <p class="text-2xl text-balance">

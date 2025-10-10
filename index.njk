@@ -10,7 +10,17 @@ headline: talk
 
 
 
-<main class="w-full grow">
+<main
+    x-data="{
+        neighborhood: null,
+        params: new URLSearchParams(window.location.search),
+        setNeighborhood () {
+            const value = this.params.get('neighborhood')
+            this.neighborhood = value ? value : null
+        }
+    }"
+    x-init="setNeighborhood"
+    class="w-full grow">
     <section class="my-12 sm:my-section" id="hero-section">
         {% include "sections/heroSection.njk" %}
     </section>

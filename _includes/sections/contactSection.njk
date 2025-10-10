@@ -8,7 +8,6 @@
 
 {% call container({},{class:"gap-8 justify-items-center"}) %}
 
-    <h2 class="text-xl text-center text-black text-balance">Let’s get coffee and go for a walk?</h2>
 
     <form
         {# x-data="{
@@ -36,8 +35,9 @@
         tabindex="0"
         class="bg-ink max-sm:-mx-2 rounded-sm min-w-full px-5 py-12 md:px-20 md:py-24 md:gap-24 grid min-h-[50dvh] place-content-center">
 
+        {# <h2 class="text-xl font-medium text-center text-hue text-balance">Contact us</h2> #}
         <div
-            x-show="!isSubmitted"
+            {# x-show="!isSubmitted" #}
             class="flex flex-col items-center gap-12">
             {{ input(
                 props={

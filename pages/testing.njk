@@ -1,0 +1,15 @@
+---
+layout: base
+---
+
+{% from "snippets/loopAttrsMacro.njk" import loopAttrs %}
+
+{% set indigo = {
+    foo: "bar",
+    red: "yellow",
+    class: "text-lg"
+} %}
+
+<div
+    {{ loopAttrs(indigo) }}
+>Testing</div>

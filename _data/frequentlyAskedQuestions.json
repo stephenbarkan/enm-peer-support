@@ -28,7 +28,10 @@
     {
       "title": "Do we have to be bisexual and live in Logan Square?",
       "description": "No! We just thought it would make a silly and attention-grabbing poster design since Logan Square is often teased as being the center of Chicago's bisexual, non-monogamy culture.",
-      "isOpen": false
+      "isOpen": false,
+      "attrs": {
+        "x-show": "neighborhood"
+      }
     }
   ]
 }
