@@ -1,3 +1,7 @@
+{# Nested components ------------------------------------------------------------------------------------------------------------------- #}
+
+{% from "snippets/loopAttrs.njk" import loopAttrs %}
+
 {# Values ------------------------------------------------------------------------------------------------------------------------------ #}
 
 {% set directionClasses = {
@@ -8,13 +12,13 @@
 {% set fieldWrapperStyles = "grow flex border-2 border-hue bg-ink rounded-base min-h-tube p-0.5" %}
 {% set fieldStyles = "grow text-black bg-hue disabled:opacity-60 rounded-sm px-3 py-4 w-full" %}
 
-{# Nested Components ------------------------------------------------------------------------------------------------------------------- #}
+{# Macros ------------------------------------------------------------------------------------------------------------------------------ #}
 
 {% macro fieldLabel(props={}, attrs={}, fieldProps={}, fieldAttrs={}) %}
     <{{ props.tag }}
         {% if props.tag === "label" %}for="{{ fieldProps.name }}"{% endif %}
         class="text-hue text-lg {{ attrs.class }}"
-        {% include "snippets/loopAttrs.njk" %}
+        {{ loopAttrs() }}
     >
         {{ fieldProps.label }} {% if fieldAttrs.required %}<span class="">*</span>{% endif %}
     </{{ props.tag }}>
@@ -22,7 +26,7 @@
 
 {% macro fieldDescription(props={}, attrs={}) %}
     <small
-        {% include "snippets/loopAttrs.njk" %}
+        {{ loopAttrs() }}
         class="text-hue text-sm opacity-70 {{ attrs.class }}">{{ props.description }}
     </small>
 {% endmacro %}

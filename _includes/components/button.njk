@@ -1,3 +1,7 @@
+{# Nested components ------------------------------------------------------------------------------------------------------------------- #}
+
+{% from "snippets/loopAttrs.njk" import loopAttrs %}
+
 {# Macro ------------------------------------------------------------------------------------------------------------------------------- #}
 
 {% macro button(props={},attrs={}) %}
@@ -33,11 +37,10 @@
     class="relative shrink-0 disabled:opacity-60 active:inline-block cursor-pointer {{ attrs.class }} {% if attrs.disabled %}pointer-events-none{% endif %}
     {{ types[props.type].styles }} {{ types[props.type].sizes[props.size] }} {{ types[props.type].variants[props.variant] }}"
     {# {{ typeClasses[props.type] }} {{ sizeClasses[props.size] }}" #}
-
-    {% include "snippets/loopAttrs.njk" %}
+    {{ loopAttrs() }}
 >
     {% if props.icon or props.label %}
-        <span class="flex items-center justify-center gap-2 relative">
+        <span class="relative flex items-center justify-center gap-2">
             {% if props.icon %}
                 <span class="text-icon">{{ props.icon }}</span>
             {% endif %}

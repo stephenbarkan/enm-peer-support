@@ -28,6 +28,7 @@ description: "
 {# Nested Components ------------------------------------------------------------------------------------------------------------------- #}
 
 {% from "components/_fieldParts.njk" import fieldLabel, fieldDescription, directionClasses, fieldStyles, fieldWrapperStyles %}
+{% from "snippets/loopAttrs.njk" import loopAttrs %}
 
 {# Macro ------------------------------------------------------------------------------------------------------------------------------- #}
 
@@ -37,7 +38,7 @@ description: "
 
 <div
     x-data="{value:'{% if fieldAttrs.value %}{{fieldAttrs.value}}{% endif %}'}"
-    {% include "snippets/loopAttrs.njk" %}
+    {{ loopAttrs() }}
     class="{% if props.direction %}{{ directionClasses[props.direction] }}{% else %}{{ directionClasses['column'] }}{% endif %} {{ attrs.class }}">
 
     {% if props.label %}{{ fieldLabel(props={tag: "label"}, fieldProps=props, fieldAttrs=fieldAttrs) }}{% endif %}
@@ -49,7 +50,7 @@ description: "
             x-model="value"
             name="{{ props.name }}"
             id="{{ props.name }}"
-            {% include "snippets/loopFieldAttrs.njk" %}
+            {{ loopAttrs(fieldAttrs) }}
             class="{{ fieldStyles }} {{ fieldAttrs.class }}">
         </span>
 

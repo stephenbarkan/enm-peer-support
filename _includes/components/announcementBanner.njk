@@ -19,6 +19,7 @@ description: "
 {% from "components/button.njk" import button %}
 {% from "components/container.njk" import container %}
 {% from "components/markdown.njk" import markdown %}
+{% from "snippets/loopAttrs.njk" import loopAttrs %}
 
 {# Component --------------------------------------------------------------------------------------------------------------------------- #}
 
@@ -53,10 +54,10 @@ description: "
     x-if="showBanner">
     <div
         data-announcement-banner
-        {% include "snippets/loopAttrs.njk" %}
+        {{ loopAttrs() }}
         class="w-full {{ position }} z-40 {{ styleClasses }} {{ attrs.class }}">
         {% call container({size:"full"}) %}
-            <div class="flex justify-between items-center">
+            <div class="flex items-center justify-between">
                 {% if caller %}
                     {{ caller() | safe }}
                 {% else %}

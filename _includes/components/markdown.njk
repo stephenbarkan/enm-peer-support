@@ -26,6 +26,10 @@ description: "
 "
 } %}
 
+{# Nested components ------------------------------------------------------------------------------------------------------------------- #}
+
+{% from "snippets/loopAttrs.njk" import loopAttrs %}
+
 {# Values ------------------------------------------------------------------------------------------------------------------------------ #}
 
 {% set themeDefaults = {
@@ -52,7 +56,7 @@ description: "
     {% set mdScale %}--md-scale: {% if props.overrides.scale %}{{ props.overrides.scale }}{% else %}{{ themeDefaults.scale }}{% endif %};{% endset %}
 
     <div
-        {% include "snippets/loopAttrs.njk" %}
+        {{ loopAttrs() }}
         style="
             {{ mdFontSize }}
             {{ mdTextColor }}
