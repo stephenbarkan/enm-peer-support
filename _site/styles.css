@@ -546,16 +546,16 @@
     border-color: #1e1e1e;
   }
   .border-hue {
-    border-color: color(display-p3 0.952941 0.686275 1 / 1);
+    border-color: color(display-p3 0.913725 0.384314 0.560784 / 1);
   }
   .bg-black {
     background-color: #1e1e1e;
   }
   .bg-hue {
-    background-color: color(display-p3 0.952941 0.686275 1 / 1);
+    background-color: color(display-p3 0.913725 0.384314 0.560784 / 1);
   }
   .bg-hue\/75 {
-    background-color: color-mix(in oklab, color(display-p3 0.952941 0.686275 1 / 1) 75%, transparent);
+    background-color: color-mix(in oklab, color(display-p3 0.913725 0.384314 0.560784 / 1) 75%, transparent);
   }
   .bg-ink {
     background-color: #424242;
@@ -715,7 +715,7 @@
     color: #1e1e1e;
   }
   .text-hue {
-    color: color(display-p3 0.952941 0.686275 1 / 1);
+    color: color(display-p3 0.913725 0.384314 0.560784 / 1);
   }
   .italic {
     font-style: italic;
@@ -841,7 +841,7 @@
   .before\:bg-hue {
     &::before {
       content: var(--tw-content);
-      background-color: color(display-p3 0.952941 0.686275 1 / 1);
+      background-color: color(display-p3 0.913725 0.384314 0.560784 / 1);
     }
   }
   .before\:bg-ink {
