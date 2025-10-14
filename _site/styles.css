@@ -8,6 +8,10 @@
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
     --spacing: 0.25rem;
+    --breakpoint-sm: 36rem;
+    --breakpoint-md: 48rem;
+    --breakpoint-lg: 56rem;
+    --breakpoint-xl: 75rem;
     --text-sm: 0.875rem;
     --text-sm--line-height: calc(1.25 / 0.875);
     --text-base: var(--text-base);
@@ -20,6 +24,7 @@
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
+    --breakpoint-xs: 28rem;
     --font-body: Gooper, sans-serif;
     --font-display: GooperSemiCondensed, sans-serif;
     --text-icon: var(--text-icon);
@@ -370,6 +375,9 @@
   .min-w-max {
     min-width: max-content;
   }
+  .flex-shrink {
+    flex-shrink: 1;
+  }
   .shrink-0 {
     flex-shrink: 0;
   }
@@ -378,6 +386,9 @@
   }
   .grow {
     flex-grow: 1;
+  }
+  .border-collapse {
+    border-collapse: collapse;
   }
   .-translate-x-full {
     --tw-translate-x: -100%;
@@ -422,6 +433,9 @@
   }
   .flex-nowrap {
     flex-wrap: nowrap;
+  }
+  .flex-wrap {
+    flex-wrap: wrap;
   }
   .place-content-center {
     place-content: center;
@@ -546,16 +560,16 @@
     border-color: #1e1e1e;
   }
   .border-hue {
-    border-color: color(display-p3 0.913725 0.384314 0.560784 / 1);
+    border-color: color(display-p3 0.909804 0.454902 0.607843 / 1);
   }
   .bg-black {
     background-color: #1e1e1e;
   }
   .bg-hue {
-    background-color: color(display-p3 0.913725 0.384314 0.560784 / 1);
+    background-color: color(display-p3 0.909804 0.454902 0.607843 / 1);
   }
   .bg-hue\/75 {
-    background-color: color-mix(in oklab, color(display-p3 0.913725 0.384314 0.560784 / 1) 75%, transparent);
+    background-color: color-mix(in oklab, color(display-p3 0.909804 0.454902 0.607843 / 1) 75%, transparent);
   }
   .bg-ink {
     background-color: #424242;
@@ -711,11 +725,14 @@
   .text-pretty {
     text-wrap: pretty;
   }
+  .text-wrap {
+    text-wrap: wrap;
+  }
   .text-black {
     color: #1e1e1e;
   }
   .text-hue {
-    color: color(display-p3 0.913725 0.384314 0.560784 / 1);
+    color: color(display-p3 0.909804 0.454902 0.607843 / 1);
   }
   .italic {
     font-style: italic;
@@ -751,8 +768,16 @@
   .opacity-70 {
     opacity: 70%;
   }
+  .outline {
+    outline-style: var(--tw-outline-style);
+    outline-width: 1px;
+  }
   .backdrop-blur-sm {
     --tw-backdrop-blur: blur(var(--blur-sm));
+    -webkit-backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
+    backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
+  }
+  .backdrop-filter {
     -webkit-backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
     backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
   }
@@ -841,7 +866,7 @@
   .before\:bg-hue {
     &::before {
       content: var(--tw-content);
-      background-color: color(display-p3 0.913725 0.384314 0.560784 / 1);
+      background-color: color(display-p3 0.909804 0.454902 0.607843 / 1);
     }
   }
   .before\:bg-ink {
@@ -1373,6 +1398,11 @@
   syntax: "*";
   inherits: false;
 }
+@property --tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
 @property --tw-backdrop-blur {
   syntax: "*";
   inherits: false;
@@ -1465,6 +1495,7 @@
       --tw-gradient-to-position: 100%;
       --tw-leading: initial;
       --tw-font-weight: initial;
+      --tw-outline-style: solid;
       --tw-backdrop-blur: initial;
       --tw-backdrop-brightness: initial;
       --tw-backdrop-contrast: initial;

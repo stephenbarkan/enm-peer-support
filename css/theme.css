@@ -42,7 +42,7 @@
   --color-transparent: transparent;
   --color-black: #1e1e1e;
   --color-ink: #424242;
-  --color-hue: color(display-p3 0.913725 0.384314 0.560784 / 1);
+  --color-hue: color(display-p3 0.909804 0.454902 0.607843 / 1);
 
   --spacing-site-inline: var(--space-site-inline);
   --spacing-section: var(--space-section);
