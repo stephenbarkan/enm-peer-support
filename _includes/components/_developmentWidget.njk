@@ -7,13 +7,15 @@
 
 {% set developmentLinks = [
     { macro: button, props:{label:"Home", type:"link", size:"sm"}, attrs:{href:"/"} },
+    { macro: button, props:{label:"Neighborhood", type:"link", size:"sm"}, attrs:{href:"/?neighborhood=Logan Square"} },
     { macro: button, props:{label:"Markdown", type:"link", size:"sm"}, attrs:{href:"/pages/markdown-test"} }
 ] %}
 
-{# Macro ------------------------------------------------------------------------------------------------------------------------------- #}
+{% set themeStyles = "border-2 border-black bg-surface/75" %}
 
+{# Macro ------------------------------------------------------------------------------------------------------------------------------- #}
 <div x-data="{
-        show: true,
+        expanded: false,
         windowWidth: window.innerWidth,
         getWidth() {
             window.addEventListener('resize', () => {
@@ -22,9 +24,8 @@
         }
     }"
     x-init="getWidth"
-    x-show="show"
-    x-transition:leave-end= "-translate-x-full"
-    class="fixed left-0 z-50 flex items-center gap-1 py-1 pl-2 pr-1 text-sm transition duration-500 border-2 border-l-0 rounded-r-lg bottom-1 bg-hue/75 backdrop-blur-sm">
+    :class="expanded && 'translate-0!'"
+    class="fixed left-0 bottom-1 z-50 -translate-x-[80%] flex items-center gap-1 py-1 pl-2 pr-1 text-sm transition duration-500 border-l-0 rounded-r-lg backdrop-blur-sm {{ themeStyles }}">
     <span class="flex w-full mr-1">
         <span class="xs:hidden">XS-</span>
         <span class="hidden xs:max-sm:block">XS-SM</span>
@@ -45,5 +46,8 @@
         triggerProps={label: "Dev", type: "button", size:"sm", variant:"hue"}
     )}}
     {% endif %}
-    {{ button({icon:"×", type:"button", size:"sm", variant:"hue"}, {@click:"show = false", title:"Close visualizer"}) }}
+    {% call button({type:"button", size:"sm"}, {@click:"expanded = !expanded", ":title":"expanded ? 'Minimize widget' : 'Expand widget'"}) %}
+        <span x-show="!expanded" class="text-icon">›</span>
+        <span x-show="expanded" class="text-icon">‹</span>
+    {% endcall%}
 </div>

@@ -12,6 +12,7 @@ export default async function (eleventyConfig) {
 
   //   Passthrough copy
   eleventyConfig.addPassthroughCopy("assets");
+  eleventyConfig.addPassthroughCopy("admin");
 
   //   Plugins
   eleventyConfig.addPlugin(eleventyImageTransformPlugin);

@@ -1,0 +1,118 @@
+{
+  "backend": {
+    "name": "test-repo",
+    "skip_ci": true
+  },
+  "media_folder": "assets/uploads",
+  "public_folder": "_site/assets/uploads",
+  "singletons": [
+    {
+      "label": "FAQs",
+      "name": "faqs",
+      "file": "_data/frequentlyAskedQuestions.json",
+      "icon": "question_mark",
+      "fields": [
+        {
+          "label": "FAQ",
+          "name": "faq",
+          "widget": "list",
+          "summary": "{{fields.title}}",
+          "fields": [
+            { "label": "Question", "name": "title", "widget": "string" },
+            { "label": "Answer", "name": "description", "widget": "markdown" },
+            { "label": "Expanded", "name": "isOpen", "widget": "boolean", "default": false }
+          ]
+        }
+      ]
+    }
+  ],
+  "collections": [
+    {
+      "label": "Settings",
+      "name": "settings",
+      "editor": {
+        "preview": false
+      },
+      "files": [
+        {
+          "label": "Navigation",
+          "name": "items",
+          "file": "src/_data/navigation.yaml",
+          "fields": [
+            {
+              "label": "Nav Items",
+              "name": "items",
+              "widget": "list",
+              "allow_add": false,
+              "collapsed": false,
+              "fields": [
+                {
+                  "label": "Title",
+                  "name": "text",
+                  "widget": "string"
+                },
+                {
+                  "label": "URL",
+                  "name": "url",
+                  "widget": "string"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Quick Links",
+          "name": "links",
+          "file": "src/_data/quicklinks.yaml",
+          "fields": [
+            {
+              "label": "Nav Items",
+              "name": "links",
+              "widget": "list",
+              "collapsed": false,
+              "fields": [
+                {
+                  "label": "Title",
+                  "name": "title",
+                  "widget": "string"
+                },
+                {
+                  "label": "URL",
+                  "name": "url",
+                  "widget": "string"
+                },
+                {
+                  "label": "Description",
+                  "name": "desc",
+                  "widget": "string"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Meta Settings",
+          "name": "settings",
+          "file": "src/_data/settings.yaml",
+          "fields": [
+            {
+              "label": "Name",
+              "name": "name",
+              "widget": "string"
+            },
+            {
+              "label": "Author",
+              "name": "author",
+              "widget": "string"
+            },
+            {
+              "label": "URL",
+              "name": "url",
+              "widget": "string"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
