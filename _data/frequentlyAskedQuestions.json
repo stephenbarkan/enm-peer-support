@@ -12,7 +12,7 @@
     },
     {
       "title": "Does it cost money?",
-      "description": "No, _ENM Peer Support_ is a community service offered for free.\n\nHowever, we follow the mutual aid model of neighbors helping neighbors, so if you find our time together to be helpful and would like to help us in return, we do encourage monetary donations commensurate with your financial situation and how valuable you feel the service has been for you.",
+      "description": "No, _ENM Peer Support_ is a community service offered for free. But we won't say no to a tip! :)",
       "isOpen": false
     },
     {
@@ -28,10 +28,7 @@
     {
       "title": "Do we have to be bisexual and live in Logan Square?",
       "description": "No! We just thought it would make a silly and attention-grabbing poster design since Logan Square is often teased as being the center of Chicago's bisexual, non-monogamy culture.",
-      "isOpen": false,
-      "attrs": {
-        "x-show": "neighborhood === 'Logan Square'"
-      }
+      "isOpen": false
     }
   ]
 }
